@@ -19,8 +19,8 @@ The API of this module includes a central `run()` method.
 
     extractFromText = (html) ->
       data = {}
-      data.title = articleTitle html
-      data.title or= html.match(/<title>([^<]*)<\/title>/i)[0]
+      data.title = html.match(/<title>([^<]*)<\/title>/i)[0]
+      data.title or= articleTitle html
       data.title or= ""
       data.text = readability.process(html, {type: "text"}).text
       data.text = "" unless data.text?.length > 50
